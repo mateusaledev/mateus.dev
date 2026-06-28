@@ -7,14 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:security": "vitest run src/lib/security.test.ts",
+    "audit": "npm audit --audit-level=high"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "next": "^15.5.0",
     "next-intl": "^4.3.4",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "next-themes": "^0.4.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -34,6 +38,7 @@
     "eslint": "^9.31.0",
     "eslint-config-next": "^15.5.0",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }

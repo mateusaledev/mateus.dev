@@ -10,6 +10,8 @@ type ProjectDetailPageProps = {
   params: Promise<{ locale: Locale; slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const { getProjects } = await import("@/lib/content");
   const projects = getProjects();

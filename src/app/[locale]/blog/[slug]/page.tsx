@@ -18,6 +18,8 @@ type BlogPostPageProps = {
   params: Promise<{ locale: Locale; slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const locales: Locale[] = ["pt", "en"];
   const params: Array<{ locale: Locale; slug: string }> = [];

@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 import type { Locale } from "@/i18n/routing";
+import { isValidSlug, resolvePathWithinBase } from "@/lib/security";
 import type {
   AboutContent,
   BlogPost,
@@ -128,9 +129,14 @@ export function getBlogPosts(locale: Locale): BlogPostMeta[] {
 }
 
 export function getBlogPost(locale: Locale, slug: string): BlogPost | undefined {
-  const filePath = path.join(contentDir, "blog", locale, `${slug}.mdx`);
+  if (!isValidSlug(slug)) {
+    return undefined;
+  }
 
-  if (!fs.existsSync(filePath)) {
+  const blogLocaleDir = path.join(contentDir, "blog", locale);
+  const filePath = resolvePathWithinBase(blogLocaleDir, `${slug}.mdx`);
+
+  if (!filePath || !fs.existsSync(filePath)) {
     return undefined;
   }
 
