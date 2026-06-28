@@ -1,0 +1,109 @@
+{
+  "name": "Mateus Alexandre",
+  "title": {
+    "pt": "Software Engineer",
+    "en": "Software Engineer"
+  },
+  "bio": {
+    "pt": "Sou engenheiro de software com experiência em desenvolvimento backend em Java, atuando na construção de APIs, microsserviços e integrações em ambientes corporativos. Trabalho com padrões de projeto, design patterns e boas práticas de arquitetura para entregar soluções escaláveis e de fácil manutenção. Tenho atuação recorrente com serviços em AWS e possuo a certificação AWS Cloud Practitioner. Uso este site para compartilhar projetos e documentar estudos em engenharia de software.",
+    "en": "I'm a software engineer with experience in Java backend development, building APIs, microservices, and integrations in enterprise environments. I apply design patterns, solid architecture practices, and clean code principles to deliver scalable, maintainable solutions. I work regularly with AWS services and hold the AWS Cloud Practitioner certification. I use this site to share projects and document my software engineering studies."
+  },
+  "location": {
+    "pt": "Brasil · Remoto",
+    "en": "Brazil · Remote"
+  },
+  "email": "m.alexandresilva22@gmail.com",
+  "social": [
+    {
+      "label": "GitHub",
+      "href": "https://github.com/mateusaledev",
+      "icon": "github"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/mateusalexandredasilva",
+      "icon": "linkedin"
+    },
+    {
+      "label": "Email",
+      "href": "mailto:m.alexandresilva22@gmail.com",
+      "icon": "email"
+    }
+  ],
+  "experience": [
+    {
+      "company": "NTT DATA",
+      "role": {
+        "pt": "Software Engineer",
+        "en": "Software Engineer"
+      },
+      "period": "2021 — Presente",
+      "description": {
+        "pt": "Desenvolvimento de APIs e microsserviços em Java, aplicação de padrões de projeto e participação em decisões de arquitetura. Atuação com serviços AWS, integração entre sistemas e entrega de soluções em ambientes corporativos.",
+        "en": "Development of Java APIs and microservices, application of design patterns, and participation in architecture decisions. Work with AWS services, system integrations, and delivery of solutions in enterprise environments."
+      }
+    },
+    {
+      "company": "Projetos pessoais",
+      "role": {
+        "pt": "Software Engineer",
+        "en": "Software Engineer"
+      },
+      "period": "2020 — Presente",
+      "description": {
+        "pt": "Projetos de estudo e repositórios públicos com foco em backend, arquitetura de software e boas práticas de engenharia.",
+        "en": "Study projects and public repositories focused on backend development, software architecture, and engineering best practices."
+      }
+    }
+  ],
+  "education": [
+    {
+      "institution": {
+        "pt": "Estácio de Sá",
+        "en": "Estácio de Sá"
+      },
+      "course": {
+        "pt": "Análise e Desenvolvimento de Sistemas",
+        "en": "Systems Analysis and Development"
+      },
+      "period": "2020 — 2022"
+    }
+  ],
+  "skills": [
+    {
+      "category": {
+        "pt": "Backend",
+        "en": "Backend"
+      },
+      "items": [
+        "Java",
+        "Python",
+        "Spring Boot",
+        "APIs",
+        "Microsserviços",
+        "Kafka"
+      ]
+    },
+    {
+      "category": {
+        "pt": "Cloud & Dados",
+        "en": "Cloud & Data"
+      },
+      "items": ["AWS", "MySQL", "PostgreSQL", "Sybase"]
+    },
+    {
+      "category": {
+        "pt": "Frontend",
+        "en": "Frontend"
+      },
+      "items": ["TypeScript", "Next.js"]
+    },
+    {
+      "category": {
+        "pt": "Ferramentas",
+        "en": "Tools"
+      },
+      "items": ["Docker", "GitHub"]
+    }
+  ]
+}

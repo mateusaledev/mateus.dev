@@ -1,0 +1,44 @@
+---
+title: "Hexagonal Architecture in practice"
+description: "Study notes on ports and adapters, applied to Spring Boot APIs and personal projects."
+date: "2026-06-20"
+tags: [architecture, spring, java]
+published: false
+---
+
+## Motivation
+
+Hexagonal architecture helps isolate business rules from infrastructure details such as databases, frameworks, and external APIs.
+
+## Suggested layers
+
+### Domain
+
+Entities, value objects, and pure rules without framework dependencies.
+
+### Application
+
+Use cases that orchestrate the domain through ports.
+
+### Adapters
+
+Concrete implementations: REST controllers, JPA repositories, HTTP integrations.
+
+## Port example
+
+```java
+public interface TaskRepository {
+  Task save(Task task);
+  Optional<Task> findById(UUID id);
+}
+```
+
+## Benefits
+
+- Simpler core tests
+- Lower impact when swapping adapters
+- More readable code with clear responsibilities
+
+## When to use
+
+Especially useful in APIs with meaningful business rules and constant evolution.
