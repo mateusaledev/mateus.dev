@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Mateus Alexandre — Software Engineer",
+    "description": "Portfolio by Mateus Alexandre: Java software engineering, APIs, architecture, and backend projects."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog"
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "headline": "Java software engineer focused on APIs and system architecture.",
+    "subheadline": "Design patterns, software engineering practices, and scalable solution design.",
+    "ctaProjects": "View projects",
+    "ctaBlog": "Read studies",
+    "featuredProjects": "Featured projects",
+    "latestPosts": "Latest studies",
+    "viewAll": "View all"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Software Engineer with experience in Java, APIs, microservices, and AWS cloud.",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "connect": "Connect"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A selection of projects that reflect my work in backend and software engineering.",
+    "filterAll": "All",
+    "viewProject": "View project",
+    "sourceCode": "Source",
+    "liveDemo": "Live demo",
+    "stack": "Stack",
+    "challenges": "Challenges",
+    "learnings": "Learnings"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Software engineering study notes — section under construction.",
+    "readMore": "Read more",
+    "minRead": "min read",
+    "tableOfContents": "On this page",
+    "previous": "Previous",
+    "next": "Next",
+    "filterAll": "All tags",
+    "underConstruction": {
+      "title": "Under construction",
+      "description": "I'm preparing the first study notes to publish here. Once content is ready, posts will appear on this page.",
+      "homeTeaser": "The blog is under construction. Soon I'll publish studies on backend, architecture, and technologies I'm learning."
+    }
+  },
+  "footer": {
+    "builtWith": "Built with Next.js and Tailwind CSS",
+    "rights": "All rights reserved."
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "switch": "Language"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Mateus Alexandre — Software Engineer",
+    "description": "Portfólio de Mateus Alexandre: engenharia de software em Java, APIs, arquitetura e projetos backend."
+  },
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "blog": "Blog"
+  },
+  "home": {
+    "greeting": "Olá, eu sou",
+    "headline": "Engenheiro de software Java, com foco em APIs e arquitetura de sistemas.",
+    "subheadline": "Padrões de projeto, design patterns e engenharia de software aplicada a soluções escaláveis.",
+    "ctaProjects": "Ver projetos",
+    "ctaBlog": "Ler estudos",
+    "featuredProjects": "Projetos em destaque",
+    "latestPosts": "Últimos estudos",
+    "viewAll": "Ver todos"
+  },
+  "about": {
+    "title": "Sobre mim",
+    "subtitle": "Software Engineer com experiência em Java, APIs, microsserviços e cloud AWS.",
+    "experience": "Experiência",
+    "education": "Formação",
+    "skills": "Habilidades",
+    "connect": "Conectar"
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Seleção de projetos que refletem minha atuação em backend e engenharia de software.",
+    "filterAll": "Todos",
+    "viewProject": "Ver projeto",
+    "sourceCode": "Código",
+    "liveDemo": "Demo",
+    "stack": "Stack",
+    "challenges": "Desafios",
+    "learnings": "Aprendizados"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Notas de estudo sobre engenharia de software — seção em construção.",
+    "readMore": "Ler mais",
+    "minRead": "min de leitura",
+    "tableOfContents": "Neste artigo",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "filterAll": "Todas as tags",
+    "underConstruction": {
+      "title": "Em construção",
+      "description": "Estou preparando os primeiros estudos para publicar aqui. Quando tiver conteúdo pronto, os posts aparecerão nesta página.",
+      "homeTeaser": "O blog está em construção. Em breve, publicarei estudos sobre backend, arquitetura e tecnologias que estou aprendendo."
+    }
+  },
+  "footer": {
+    "builtWith": "Feito com Next.js e Tailwind CSS",
+    "rights": "Todos os direitos reservados."
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro",
+    "toggle": "Alternar tema"
+  },
+  "language": {
+    "switch": "Idioma"
+  }
+}

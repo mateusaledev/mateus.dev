@@ -1,0 +1,41 @@
+---
+title: "Introduction to Apache Kafka"
+description: "Study notes on messaging, topics, partitions, and producers/consumers — based on Kafka projects on GitHub."
+date: "2026-06-28"
+tags: [kafka, backend, distributed-systems]
+published: false
+---
+
+## What is Kafka?
+
+Apache Kafka is a distributed streaming platform used to publish, store, and process real-time event streams. It is widely adopted in microservices architectures and data pipelines.
+
+## Core concepts
+
+### Topics and partitions
+
+Messages are organized into **topics**, which can be partitioned to scale consumption and parallelism.
+
+### Producers and consumers
+
+- **Producer**: sends messages to a topic
+- **Consumer**: reads messages from a topic
+- **Consumer group**: coordinates multiple consumers
+
+## Conceptual example
+
+```java
+ProducerRecord<String, String> record =
+    new ProducerRecord<>("orders", orderId, payload);
+producer.send(record);
+```
+
+## Why study Kafka?
+
+For systems with high event volume, Kafka offers durability, horizontal scalability, and decoupling between services.
+
+## Next steps in this study
+
+1. Run Kafka locally with Docker
+2. Build a Java producer and consumer
+3. Explore retention, offsets, and dead-letter queues
