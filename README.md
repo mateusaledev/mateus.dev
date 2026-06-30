@@ -1,4 +1,4 @@
-# mk-portifolio
+# mateus.dev
 
 Site pessoal bilíngue (pt-BR / EN) com portfólio de projetos, página sobre e blog de estudos técnicos.
 
@@ -60,23 +60,6 @@ content/
 - **Blog em construção:** `content/site/blog.json` (`underConstruction: true/false`)
 - **Traduções da UI:** `src/i18n/messages/pt.json` e `en.json`
 - **URL base (SEO):** `metadataBase` em `src/app/layout.tsx`
-
-## Deploy na Vercel
-
-1. Acesse [vercel.com](https://vercel.com) e faça login com GitHub
-2. Importe o repositório do projeto
-3. Mantenha as configurações padrão (Next.js detectado automaticamente)
-4. Cada push em `main` gera um novo deploy
-
-O GitHub Actions roda lint, typecheck e build em cada push/PR.
-
-## Segurança
-
-- Nunca commite arquivos `.env` com secrets
-- Posts com `published: false` não são acessíveis publicamente
-- Revise conteúdo antes de publicar (sem tokens, senhas ou URLs internas)
-- Dependabot ativo; override de `postcss >= 8.5.10` corrige alerta transitivo do Next.js
-- Proteção de branch em `main`: Settings → Branches → exigir PR + CI `quality` (ver `docs/step-by-step/09-auditoria-seguranca.md`)
 
 ## Licença
 
