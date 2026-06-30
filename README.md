@@ -1,4 +1,4 @@
-# mk-portifolio
+# mateus.dev
 
 Site pessoal bilíngue (pt-BR / EN) com portfólio de projetos, página sobre e blog de estudos técnicos.
 
