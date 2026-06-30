@@ -55,9 +55,28 @@ Mitigações:
 |--------|-----------|------------|------|
 | next-mdx-remote | **6.0.0** (upgrade aplicado) | — | Corrige CVE de execução arbitrária em MDX |
 | js-yaml 3.x (gray-matter) | Moderada | Baixo — frontmatter autor-controlled | Aguardar gray-matter |
-| postcss (via next) | Moderada | Baixo — transitive | Aguardar next |
+| postcss (via next) | Moderada | Baixo — transitive | ~~Aguardar next~~ **override `^8.5.10` em package.json** |
 
 CI roda `npm audit --audit-level=high` — após upgrade para v6, não há mais vulnerabilidades **high**.
+
+### PostCSS XSS (GHSA-qx2v-qp2m-jg93)
+
+**Corrigido** — Next.js embute `postcss@8.4.31` como dependência transitiva. Override em `package.json` força `postcss >= 8.5.10` em toda a árvore.
+
+**Risco real neste projeto:** muito baixo — PostCSS roda só no build (Tailwind), não processa CSS de usuários. O override silencia o Dependabot e mantém boas práticas de supply chain.
+
+**Não use** `npm audit fix --force` — pode fazer downgrade do Next.js para 9.x.
+
+## Proteção de branch (GitHub)
+
+Configuração manual: **Settings → Branches → Add rule** (ou **Add branch ruleset**):
+
+1. **Branch name pattern:** `main`
+2. **Require a pull request before merging**
+3. **Require status checks to pass** — selecione o job `quality` do CI (`.github/workflows/ci.yml`)
+4. **Require branches to be up to date** (opcional, recomendado)
+
+Para repos pessoais, PR obrigatório + CI verde já cobre a maior parte do valor.
 
 ## Como executar os testes
 
@@ -85,5 +104,7 @@ npm run audit           # npm audit (falha em high+)
 
 1. ~~Upgrade `next-mdx-remote` para v6~~ — **concluído** (v6.0.0 + `transpilePackages` no next.config)
 2. Playwright e2e para validar headers em build de produção
-3. Dependabot no GitHub para alertas automáticos
+3. ~~Dependabot no GitHub para alertas automáticos~~ — **ativado**
 4. Validar `githubUrl`/`liveUrl` com `isSafeExternalUrl` no carregamento de projetos
+5. ~~Override PostCSS >= 8.5.10~~ — **concluído**
+6. Proteção de branch em `main` — configurar no GitHub (ver seção acima)

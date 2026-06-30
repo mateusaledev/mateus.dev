@@ -75,6 +75,8 @@ O GitHub Actions roda lint, typecheck e build em cada push/PR.
 - Nunca commite arquivos `.env` com secrets
 - Posts com `published: false` não são acessíveis publicamente
 - Revise conteúdo antes de publicar (sem tokens, senhas ou URLs internas)
+- Dependabot ativo; override de `postcss >= 8.5.10` corrige alerta transitivo do Next.js
+- Proteção de branch em `main`: Settings → Branches → exigir PR + CI `quality` (ver `docs/step-by-step/09-auditoria-seguranca.md`)
 
 ## Licença
 
