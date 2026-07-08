@@ -1,56 +1,77 @@
 ---
 title:
-  pt: "mk-portifolio"
-  en: "mk-portifolio"
+  pt: "mateus.dev"
+  en: "mateus.dev"
 description:
   pt: "Site pessoal bilíngue com portfólio, blog de estudos e deploy automatizado via GitHub e Vercel."
   en: "Bilingual personal site with portfolio, study blog, and automated deploy via GitHub and Vercel."
 tags: [nextjs, portfolio, blog, typescript]
 stack: [Next.js, TypeScript, Tailwind CSS, next-intl, MDX]
 githubUrl: https://github.com/mateusaledev/mk-portifolio
+liveUrl: https://mk-portifolio-five.vercel.app/
 featured: true
 order: 1
 challenges:
-  pt: "Estruturar conteúdo bilíngue, MDX para blog e CI/CD sem complexidade desnecessária."
-  en: "Structure bilingual content, MDX blog, and CI/CD without unnecessary complexity."
+  pt: "Entregar um site bilíngue, com blog em MDX e pipeline de qualidade, mantendo tudo estático, seguro e sem complexidade desnecessária."
+  en: "Deliver a bilingual site with an MDX blog and a quality pipeline, keeping everything static, secure, and without unnecessary complexity."
 learnings:
-  pt: "Combinação de next-intl, arquivos MDX versionados e deploy na Vercel cobre bem o caso de uso de portfólio pessoal."
-  en: "Combining next-intl, versioned MDX files, and Vercel deploy covers the personal portfolio use case well."
+  pt: "Conteúdo versionado em MDX, geração estática e uma camada explícita de segurança cobrem muito bem o caso de uso de portfólio pessoal."
+  en: "Versioned MDX content, static generation, and an explicit security layer cover the personal portfolio use case very well."
 localeBodies:
   pt: |
     ## Sobre o projeto
 
-    Este é o próprio site que você está visitando. Ele reúne meu portfólio, informações sobre mim e um blog para publicar estudos técnicos.
+    Este é o próprio site que você está visitando. Ele reúne meu portfólio, a página sobre mim e um blog para publicar estudos técnicos, com suporte a português e inglês.
 
-    ## Destaques técnicos
+    ## Arquitetura
 
-    - Rotas bilíngues com `next-intl`
-    - Blog em MDX com syntax highlighting via Shiki
-    - Design minimalista inspirado na Apple
-    - Pipeline de qualidade com GitHub Actions
+    - App Router do Next.js com geração estática das páginas (`generateStaticParams`)
+    - Conteúdo desacoplado do código: projetos e posts vivem como arquivos MDX versionados em `content/`
+    - Rotas bilíngues (`/pt`, `/en`) com `next-intl` e troca de idioma preservando a rota
 
-    ## Próximos passos
+    ## Conteúdo e blog
 
-    - Adicionar mais projetos reais
-    - Publicar estudos sobre Kafka, Spring e arquitetura
-    - Configurar domínio customizado
+    - Blog em MDX com frontmatter, tempo de leitura e índice automático
+    - Syntax highlighting via Shiki
+    - Tema claro/escuro com `next-themes`
+
+    ## Qualidade e segurança
+
+    - Camada de segurança dedicada: validação de slug, proteção contra path traversal e bloqueio de URLs com schemes perigosos, com testes unitários (Vitest)
+    - Cabeçalhos de segurança endurecidos (CSP, HSTS, X-Frame-Options, Permissions-Policy)
+    - Pipeline de CI com lint, type-check e testes via GitHub Actions
+    - `sitemap.xml` e `robots.txt` gerados dinamicamente
+
+    ## Deploy
+
+    Deploy automático na Vercel a cada push na branch `main`.
   en: |
     ## About the project
 
-    This is the very site you are visiting. It brings together my portfolio, about page, and a blog for technical study notes.
+    This is the very site you are visiting. It brings together my portfolio, the about page, and a blog for technical study notes, with Portuguese and English support.
 
-    ## Technical highlights
+    ## Architecture
 
-    - Bilingual routes with `next-intl`
-    - MDX blog with Shiki syntax highlighting
-    - Minimal Apple-inspired design
-    - Quality pipeline with GitHub Actions
+    - Next.js App Router with static page generation (`generateStaticParams`)
+    - Content decoupled from code: projects and posts live as versioned MDX files under `content/`
+    - Bilingual routes (`/pt`, `/en`) with `next-intl` and language switching that preserves the current route
 
-    ## Next steps
+    ## Content and blog
 
-    - Add more real projects
-    - Publish studies on Kafka, Spring, and architecture
-    - Configure a custom domain
+    - MDX blog with frontmatter, reading time, and an automatic table of contents
+    - Syntax highlighting via Shiki
+    - Light/dark theme with `next-themes`
+
+    ## Quality and security
+
+    - Dedicated security layer: slug validation, path-traversal protection, and blocking of URLs with dangerous schemes, with unit tests (Vitest)
+    - Hardened security headers (CSP, HSTS, X-Frame-Options, Permissions-Policy)
+    - CI pipeline with lint, type-check, and tests via GitHub Actions
+    - Dynamically generated `sitemap.xml` and `robots.txt`
+
+    ## Deploy
+
+    Automatic deployment on Vercel on every push to the `main` branch.
 ---
 
 Conteúdo padrão do projeto.

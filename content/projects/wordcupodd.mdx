@@ -1,0 +1,93 @@
+---
+title:
+  pt: "WordCup — Analisador de Apostas"
+  en: "WordCup — Betting Analyzer"
+description:
+  pt: "Analisador estatístico de partidas da Copa do Mundo 2026 com ensemble de Dixon-Coles, Elo e forma, sugestões de apostas por valor esperado e app desktop nativo."
+  en: "Statistical analyzer for World Cup 2026 matches with a Dixon-Coles, Elo, and form ensemble, expected-value betting suggestions, and a native desktop app."
+tags: [python, data, docker, desktop]
+stack: [Python, Streamlit, Docker, Tauri, pytest]
+githubUrl: https://github.com/mateusaledev/wordcupodd
+order: 3
+challenges:
+  pt: "Unir três modelos estatísticos em um ensemble calibrado, derivar mais de 20 mercados de uma única matriz de placares e operar dentro dos limites de free tier de duas APIs externas."
+  en: "Combine three statistical models into a calibrated ensemble, derive 20+ markets from a single score matrix, and operate within the free-tier limits of two external APIs."
+learnings:
+  pt: "Separar o motor estatístico local do acesso a APIs, com cache agressivo e controle de cota, torna o sistema previsível, testável e barato de operar."
+  en: "Separating the local statistical engine from API access, with aggressive caching and quota control, makes the system predictable, testable, and cheap to run."
+localeBodies:
+  pt: |
+    ## Visão geral
+
+    Sistema pessoal para análise estatística, previsão de resultados e sugestões de apostas para a Copa do Mundo 2026. Roda 100% localmente via Docker ou Python e protege a cota das APIs free tier com cache agressivo.
+
+    ## Motor estatístico
+
+    O núcleo é um orquestrador que combina três modelos em um ensemble com pesos calibrados:
+
+    - **Dixon-Coles (1997)** — variação do Poisson que corrige a dependência de placares baixos (0-0, 1-0, 0-1, 1-1) via fator `tau` e o parâmetro `rho`, gerando uma matriz completa de placares.
+    - **Elo** — força relativa das seleções, com fator de mando de campo e bônus para os países-sede.
+    - **Forma recente** — desempenho das últimas partidas.
+
+    As probabilidades 1X2 saem do ensemble; os demais mercados são derivados da matriz de placares.
+
+    ## Mercados cobertos
+
+    A partir de uma única matriz, o sistema deriva mais de 20 mercados: 1X2, over/under 1.5–3.5, ambas marcam, dupla chance, handicap, e mercados secundários como escanteios, chutes, chutes no alvo e cartões.
+
+    ## Recomendações
+
+    - Cálculo de valor esperado (**+EV**) quando há odds disponíveis
+    - Score de confiança por pick, combinando probabilidade, contexto e fase do torneio
+    - Aposta do dia, múltiplas (parlay) e previsão de placar com top-5 resultados prováveis
+    - Ajustes táticos e de contexto (fase de grupos vs. mata-mata)
+
+    ## Infraestrutura
+
+    - Interface em Streamlit, com monitoramento de cota na sidebar e modo simulado offline
+    - App desktop nativo empacotado com Tauri (Rust)
+    - Suite de testes unitários com pytest cobrindo modelos, filtros e calibração
+    - Execução via Docker Compose ou Python nativo, com launcher para Windows
+
+    ## Arquitetura
+
+    A interface consome o motor estatístico local; apenas a atualização de dados dispara requisições externas, que passam por cache e controle de cota antes de chegar às APIs (The Odds API e API-Football).
+  en: |
+    ## Overview
+
+    Personal system for statistical analysis, result prediction, and betting suggestions for the 2026 World Cup. It runs 100% locally via Docker or Python and protects free-tier API quotas with aggressive caching.
+
+    ## Statistical engine
+
+    The core is an orchestrator that combines three models into a weighted, calibrated ensemble:
+
+    - **Dixon-Coles (1997)** — a Poisson variant that corrects low-score dependency (0-0, 1-0, 0-1, 1-1) via a `tau` factor and the `rho` parameter, producing a full score matrix.
+    - **Elo** — relative team strength, with a home-advantage factor and a bonus for host nations.
+    - **Recent form** — performance over the latest matches.
+
+    The 1X2 probabilities come from the ensemble; all other markets are derived from the score matrix.
+
+    ## Covered markets
+
+    From a single matrix, the system derives 20+ markets: 1X2, over/under 1.5–3.5, both teams to score, double chance, handicap, and secondary markets such as corners, shots, shots on target, and cards.
+
+    ## Recommendations
+
+    - Expected value (**+EV**) computation when odds are available
+    - Per-pick confidence score combining probability, context, and tournament phase
+    - Bet of the day, parlays, and score prediction with the top-5 likely results
+    - Tactical and context adjustments (group stage vs. knockout)
+
+    ## Infrastructure
+
+    - Streamlit UI with sidebar quota monitoring and an offline simulated mode
+    - Native desktop app packaged with Tauri (Rust)
+    - Unit test suite with pytest covering models, filters, and calibration
+    - Runs via Docker Compose or native Python, with a Windows launcher
+
+    ## Architecture
+
+    The UI consumes the local statistical engine; only data refresh triggers external requests, which pass through caching and quota control before reaching the APIs (The Odds API and API-Football).
+---
+
+Analisador estatístico de apostas da Copa do Mundo 2026.

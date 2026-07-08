@@ -8,43 +8,61 @@ description:
 tags: [backend, kafka, java, messaging]
 stack: [Java, Spring Boot, Kafka, Maven]
 githubUrl: https://github.com/mateusaledev/venda-de-ingressos
-featured: true
-order: 2
+featured: false
+order: 4
 challenges:
-  pt: "Modelar o fluxo de eventos entre serviços e garantir consistência no processamento de pedidos."
-  en: "Model the event flow between services and ensure consistency in order processing."
+  pt: "Modelar o fluxo de eventos entre o serviço de venda e o de processamento, garantindo desacoplamento e consistência no processamento dos ingressos."
+  en: "Model the event flow between the sales service and the processing service, ensuring decoupling and consistency in ticket processing."
 learnings:
-  pt: "Kafka simplifica o desacoplamento entre produtores e consumidores em cenários de alta concorrência."
-  en: "Kafka simplifies decoupling between producers and consumers in high-concurrency scenarios."
+  pt: "Kafka como espinha dorsal permite que produtores e consumidores evoluam de forma independente, absorvendo picos de demanda sem acoplamento direto."
+  en: "Kafka as the backbone lets producers and consumers evolve independently, absorbing demand spikes without direct coupling."
 localeBodies:
   pt: |
     ## Visão geral
 
-    Projeto de estudo para venda de ingressos com arquitetura orientada a eventos.
+    Projeto de estudo de venda de ingressos com arquitetura orientada a eventos, dividido em serviços independentes que se comunicam por mensageria assíncrona.
+
+    ## Arquitetura
+
+    O sistema é organizado em módulos distintos:
+
+    - **venda-ingressos** — serviço que recebe os pedidos e publica eventos de venda (produtor)
+    - **processamento-vendas** — serviço que consome os eventos e processa cada venda (consumidor)
+    - **kafka** — infraestrutura de mensageria que desacopla os dois serviços
 
     ## Destaques
 
-    - Produtores e consumidores Kafka
-    - API em Java com Spring Boot
-    - Fluxo assíncrono entre etapas do pedido
+    - Comunicação assíncrona entre produtor e consumidor via Apache Kafka
+    - Serviços em Java com Spring Boot
+    - Desacoplamento que permite escalar e evoluir cada etapa isoladamente
+    - Fluxo resiliente a picos de demanda
 
     ## Contexto
 
-    Repositório público no GitHub com foco em mensageria e sistemas distribuídos.
+    Repositório público no GitHub, focado em praticar mensageria e padrões de sistemas distribuídos e orientados a eventos.
   en: |
     ## Overview
 
-    Study project for ticket sales with an event-driven architecture.
+    Study project for ticket sales with an event-driven architecture, split into independent services that communicate through asynchronous messaging.
+
+    ## Architecture
+
+    The system is organized into distinct modules:
+
+    - **venda-ingressos** — service that receives orders and publishes sale events (producer)
+    - **processamento-vendas** — service that consumes the events and processes each sale (consumer)
+    - **kafka** — messaging infrastructure that decouples the two services
 
     ## Highlights
 
-    - Kafka producers and consumers
-    - Java API with Spring Boot
-    - Asynchronous flow between order stages
+    - Asynchronous communication between producer and consumer via Apache Kafka
+    - Java services with Spring Boot
+    - Decoupling that allows scaling and evolving each stage independently
+    - Flow resilient to demand spikes
 
     ## Context
 
-    Public GitHub repository focused on messaging and distributed systems.
+    Public GitHub repository focused on practicing messaging and distributed, event-driven system patterns.
 ---
 
 Sistema de venda de ingressos com Kafka.
