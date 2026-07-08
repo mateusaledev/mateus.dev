@@ -1,0 +1,63 @@
+---
+title:
+  pt: "Sistema de Pedidos"
+  en: "Order Management System"
+description:
+  pt: "Aplicação web de gestão de pedidos em Java e Spring Boot, com camadas bem definidas e páginas renderizadas no servidor."
+  en: "Web order management application built with Java and Spring Boot, with well-defined layers and server-rendered pages."
+tags: [backend, java, spring, web]
+stack: [Java, Spring Boot, Thymeleaf, Maven]
+githubUrl: https://github.com/mateusaledev/sistema-de-pedidos
+order: 5
+challenges:
+  pt: "Organizar o fluxo de pedidos em uma aplicação web MVC, mantendo regras de negócio coesas e separadas das telas renderizadas no servidor."
+  en: "Organize the order flow in an MVC web application, keeping business rules cohesive and separated from server-rendered screens."
+learnings:
+  pt: "O padrão MVC do Spring, com controllers finos, serviços de domínio e templates, mantém a aplicação simples de entender e evoluir."
+  en: "The Spring MVC pattern, with thin controllers, domain services, and templates, keeps the application simple to understand and evolve."
+localeBodies:
+  pt: |
+    ## Visão geral
+
+    Aplicação web de gestão de pedidos em Java com Spring Boot, unindo a lógica de domínio no backend com telas renderizadas no servidor — cerca de metade do código é Java e metade são as views.
+
+    ## Arquitetura
+
+    - Padrão MVC: controllers recebem as requisições, serviços concentram as regras de negócio e as views renderizam o resultado
+    - Camada de domínio (pedidos e itens) separada da apresentação
+    - Páginas renderizadas no servidor com templates HTML
+    - Build e gestão de dependências com Maven (Maven Wrapper incluso)
+
+    ## Destaques
+
+    - Fluxo de criação e acompanhamento de pedidos
+    - Separação clara entre controller, serviço e apresentação
+    - Base sólida para praticar boas práticas no ecossistema Spring
+
+    ## Contexto
+
+    Projeto pessoal para consolidar organização de código, camadas e o ciclo request-response de aplicações web em Spring Boot.
+  en: |
+    ## Overview
+
+    Web application for order management in Java with Spring Boot, combining backend domain logic with server-rendered screens — roughly half of the code is Java and half is the views.
+
+    ## Architecture
+
+    - MVC pattern: controllers receive requests, services hold the business rules, and views render the result
+    - Domain layer (orders and items) separated from presentation
+    - Server-rendered pages with HTML templates
+    - Build and dependency management with Maven (Maven Wrapper included)
+
+    ## Highlights
+
+    - Order creation and tracking flow
+    - Clear separation between controller, service, and presentation
+    - Solid base for practicing best practices in the Spring ecosystem
+
+    ## Context
+
+    Personal project to consolidate code organization, layering, and the request-response cycle of Spring Boot web applications.
+---
+
+Sistema de pedidos em Java com Spring Boot.

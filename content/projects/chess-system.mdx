@@ -1,0 +1,77 @@
+---
+title:
+  pt: "Chess System"
+  en: "Chess System"
+description:
+  pt: "Jogo de xadrez jogável no console, escrito em Java com foco em Programação Orientada a Objetos e nas regras do jogo."
+  en: "Console-playable chess game written in Java, focused on Object-Oriented Programming and the game rules."
+tags: [java, oop, game, console]
+stack: [Java, POO]
+githubUrl: https://github.com/MkConsultLtda/chess-system
+order: 8
+challenges:
+  pt: "Implementar as regras completas do xadrez — incluindo xeque, xeque-mate e jogadas especiais — separando a camada genérica de tabuleiro da camada específica do jogo."
+  en: "Implement the complete chess rules — including check, checkmate, and special moves — separating the generic board layer from the game-specific layer."
+learnings:
+  pt: "Um domínio de regras ricas como o xadrez evidencia o valor de herança, polimorfismo e encapsulamento para manter cada peça responsável pelos próprios movimentos."
+  en: "A rules-rich domain like chess highlights the value of inheritance, polymorphism, and encapsulation to keep each piece responsible for its own moves."
+localeBodies:
+  pt: |
+    ## Visão geral
+
+    Jogo de xadrez lógico, jogável pelo console, desenvolvido em Java como estudo aprofundado de Programação Orientada a Objetos.
+
+    ## Arquitetura em camadas
+
+    - **Camada de tabuleiro** — abstração genérica de tabuleiro, posições e peças, reutilizável para qualquer jogo de tabuleiro
+    - **Camada de xadrez** — regras específicas do jogo construídas sobre a camada genérica
+
+    Cada tipo de peça herda de uma peça base e implementa, via polimorfismo, sua própria matriz de movimentos possíveis.
+
+    ## Regras implementadas
+
+    - Movimentos e capturas de todas as peças
+    - Xeque e xeque-mate
+    - Jogadas especiais: roque, en passant e promoção de peão
+    - Tratamento de exceções para jogadas e posições inválidas
+
+    ## Conceitos de POO exercitados
+
+    - Herança e polimorfismo entre os tipos de peça
+    - Encapsulamento do estado do tabuleiro e das peças
+    - Tratamento de exceções personalizado
+
+    ## Contexto
+
+    Projeto de estudo clássico para consolidar os pilares da orientação a objetos em um domínio com regras complexas e bem definidas.
+  en: |
+    ## Overview
+
+    Logic chess game, playable from the console, developed in Java as an in-depth study of Object-Oriented Programming.
+
+    ## Layered architecture
+
+    - **Board layer** — a generic abstraction of board, positions, and pieces, reusable for any board game
+    - **Chess layer** — the game-specific rules built on top of the generic layer
+
+    Each piece type inherits from a base piece and implements, via polymorphism, its own matrix of possible moves.
+
+    ## Implemented rules
+
+    - Moves and captures for all pieces
+    - Check and checkmate
+    - Special moves: castling, en passant, and pawn promotion
+    - Exception handling for invalid moves and positions
+
+    ## OOP concepts practiced
+
+    - Inheritance and polymorphism across piece types
+    - Encapsulation of board and piece state
+    - Custom exception handling
+
+    ## Context
+
+    A classic study project to consolidate the pillars of object orientation in a domain with complex, well-defined rules.
+---
+
+Jogo de xadrez em Java com foco em POO.
