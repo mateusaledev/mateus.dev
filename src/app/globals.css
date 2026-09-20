@@ -87,3 +87,15 @@
 .prose-custom h3 + p {
   @apply mt-4;
 }
+
+.prose-custom figure {
+  @apply my-8 space-y-3;
+}
+
+.prose-custom figure img {
+  @apply w-full rounded-2xl border border-border;
+}
+
+.prose-custom figcaption {
+  @apply text-center font-mono text-xs leading-relaxed text-muted;
+}
