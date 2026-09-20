@@ -39,14 +39,15 @@ Reorganizar `content/projects/` para refletir os projetos atuais: renomear o por
 
 ## Ordem final na listagem
 
-1. mateus.dev (destaque)
+1. mateus.dev
 2. JS Fisioterapia (destaque)
-3. WordCup
-4. Venda de Ingressos
-5. Sistema de Pedidos
-6. DSVendas
-7. REST API Complete
-8. Chess System
+3. Sexta-Feira News (destaque)
+4. WordCup
+5. Venda de Ingressos
+6. Sistema de Pedidos
+7. DSVendas
+8. REST API Complete
+9. Chess System
 
 ## Decisões e observações
 
@@ -62,3 +63,10 @@ npm run build
 ```
 
 Confirma que `generateStaticParams` gera as rotas estáticas de todos os slugs sem erro.
+
+## 2026-09-20 — Sexta-Feira News
+
+- Criado `content/projects/sexta-feira.mdx`.
+- Home em destaque: JS Fisioterapia (`order: 2`) e Sexta-Feira News (`order: 3`). `mateus.dev` permanece na listagem (`order: 1`) sem `featured`.
+- Prints em `public/projects/sexta-feira/` (painel do briefing e e-mail no Gmail), renderizados no MDX via `figure`/`img`.
+- Repositório `mateusaledev/sexta-feira` é **privado**; o link de código-fonte aponta para ele mesmo assim.

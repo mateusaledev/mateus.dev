@@ -1,0 +1,100 @@
+---
+title:
+  pt: "Sexta-Feira News"
+  en: "Sexta-Feira News"
+description:
+  pt: "Briefing diário pessoal: lê RSS e Google News dos assuntos que eu escolho, resume com IA e envia o e-mail todo dia às 8h."
+  en: "Personal daily briefing: it reads RSS and Google News for topics I choose, summarizes them with AI, and emails the digest every day at 8am."
+tags: [java, spring, react, ai]
+stack: [Java, Spring Boot, React, Gemini]
+githubUrl: https://github.com/mateusaledev/sexta-feira
+featured: true
+order: 3
+challenges:
+  pt: "Filtrar ruído em feeds, caber na cota free de LLM e montar um HTML de e-mail que continue legível no Gmail — sem deixar o job das 8h enviar o mesmo briefing duas vezes."
+  en: "Filter feed noise, stay within a free-tier LLM quota, and render HTML that stays readable in Gmail — without letting the 8am job send the same briefing twice."
+learnings:
+  pt: "Um pipeline com fallback (Gemini → NVIDIA NIM → primeiro parágrafo) e idempotência no scheduler deixa o produto previsível quando a API externa falha ou o job dispara de novo."
+  en: "A fallback pipeline (Gemini → NVIDIA NIM → first paragraph) plus scheduler idempotency keeps the product predictable when an external API fails or the job runs twice."
+localeBodies:
+  pt: |
+    ## O problema
+
+    Eu quero começar o dia já por dentro dos assuntos que me interessam — IA, games, segurança — sem abrir dez abas nem rolar feed infinito. Agregadores genéricos misturam ruído; um resumo curto, no e-mail, no horário certo, resolve.
+
+    ## A solução
+
+    O Sexta-Feira News é um briefing pessoal: eu cadastro os assuntos, um job às **8h** (America/Sao_Paulo) coleta RSS e Google News, ranqueia, resume e manda um e-mail com até 28 itens.
+
+    O painel mostra o último briefing, o status do envio e deixa reenviar ou gerar de novo na hora.
+
+    <figure>
+      <img src="/projects/sexta-feira/briefing-ui.png" alt="Painel Último briefing do Sexta-Feira News, com itens de IA e botões para reenviar ou gerar o e-mail" />
+      <figcaption>Último briefing no painel: matérias agrupadas por assunto, contagem de itens e status do e-mail.</figcaption>
+    </figure>
+
+    ## Como funciona
+
+    1. Assuntos e palavras-chave no painel (com um seed inicial de tópicos)
+    2. Coleta de feeds e busca, com ranking e filtro de ruído
+    3. Resumo: **Gemini** (cota free) → **NVIDIA NIM** se a cota estourar ou vier vazio → primeiro parágrafo extraído da matéria
+    4. SMTP (Gmail, porta 587) envia o HTML montado no Java
+
+    O e-mail chega como uma edição da manhã, com os mesmos blocos por assunto.
+
+    <figure>
+      <img src="/projects/sexta-feira/email.png" alt="E-mail Briefing da manhã do Sexta-Feira News aberto no Gmail, com a seção Games" />
+      <figcaption>O briefing no Gmail: layout de edição impressa, data, volume de itens e link para cada matéria.</figcaption>
+    </figure>
+
+    ## Arquitetura
+
+    - Backend em **Java 21** e **Spring Boot**: APIs JSON, segurança da UI, scheduler e envio de e-mail
+    - Frontend em **React + Vite + shadcn**, empacotado no JAR — o Spring serve a SPA e o `/api/*`
+    - Persistência em JSON (assuntos, último briefing, configurações), sem banco para operar
+    - O job diário é idempotente: se o briefing do dia já saiu, a execução seguinte não reenvia
+
+    ## Deploy
+
+    Um JAR único sobe na VPS com systemd. A UI autenticada cobre assuntos, último briefing e config (SMTP e chaves de resumo).
+  en: |
+    ## The problem
+
+    I want to start the day already caught up on the topics I care about — AI, games, security — without opening ten tabs or scrolling an infinite feed. Generic aggregators mix in noise; a short email digest, at the right time, solves that.
+
+    ## The solution
+
+    Sexta-Feira News is a personal briefing: I register topics, an **8am** job (America/Sao_Paulo) collects RSS and Google News, ranks, summarizes, and sends an email with up to 28 items.
+
+    The dashboard shows the latest briefing, the send status, and lets me resend or generate on demand.
+
+    <figure>
+      <img src="/projects/sexta-feira/briefing-ui.png" alt="Sexta-Feira News latest briefing dashboard, with AI stories and buttons to resend or generate the email" />
+      <figcaption>Latest briefing in the dashboard: stories grouped by topic, item count, and email status.</figcaption>
+    </figure>
+
+    ## How it works
+
+    1. Topics and keywords in the UI (plus an initial topic seed)
+    2. Feed collection and search, with ranking and noise filtering
+    3. Summary: **Gemini** (free tier) → **NVIDIA NIM** on quota errors or empty output → first paragraph extracted from the article
+    4. SMTP (Gmail, port 587) sends the HTML assembled in Java
+
+    The email arrives as a morning edition, with the same topic blocks.
+
+    <figure>
+      <img src="/projects/sexta-feira/email.png" alt="Sexta-Feira News morning briefing email open in Gmail, showing the Games section" />
+      <figcaption>The briefing in Gmail: print-edition layout, date, item count, and a link to each story.</figcaption>
+    </figure>
+
+    ## Architecture
+
+    - **Java 21** and **Spring Boot** backend: JSON APIs, UI security, scheduler, and mail
+    - **React + Vite + shadcn** frontend, packaged into the JAR — Spring serves the SPA and `/api/*`
+    - JSON persistence (topics, last briefing, settings), no database required to run
+    - The daily job is idempotent: if today's briefing already went out, the next run does not resend
+
+    ## Deploy
+
+    A single JAR runs on a VPS with systemd. The authenticated UI covers topics, the latest briefing, and config (SMTP and summarizer keys).
+---
